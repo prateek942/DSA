@@ -1,0 +1,49 @@
+//{ Driver Code Starts
+//Initial template for C++
+
+#include<bits/stdc++.h>
+using namespace std;
+// int maxArea(int A[], int len);
+
+// } Driver Code Ends
+//User function template for C++
+
+long long maxArea(long long A[], int len)
+{
+    // Your code goes here
+    int low=0;int high=len-1;
+    int maxArea=0;
+    while(low<=high){
+        int height=min(A[low],A[high]);
+        int width=high-low;
+        maxArea=max(maxArea,width*height);
+        if(A[low]<A[high]){
+            low++;
+        }
+        else{
+            high--;
+        }
+    }
+    return maxArea;
+}
+
+//{ Driver Code Starts.
+
+// Driver code
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+    {
+        int n;
+        cin>>n;
+        long long arr[n];
+        for(int i=0;i<n;i++)
+            cin>>arr[i];
+        cout<<maxArea(arr,n)<<endl;
+    }
+return 0;
+}
+
+// } Driver Code Ends
